@@ -1,25 +1,37 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import NavigationBar from './components/NavigationBar';
+import PlayerControlBar from './components/PlayerControlBar';
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import IconButton from './components/IconButton';
+
+interface IProp{
+  hahahah: string;
+}
+
+const TestComponent: React.FC<IProp> = ({hahahah}) => {
+  return (
+    <div>
+      page {hahahah}...
+      <IconButton blue/>
+    </div>
+  );
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App flex flex-col content-between bg-zinc-900 w-full h-full font-Rubik">
+        <NavigationBar userId={0} userName='baris'/>
+        <div className="w-full h-full flex -my-5 text-9xl overflow-y-auto overflow-x-hidden text-clip text-gray-800">
+          <Routes>
+            <Route path="home" element={<TestComponent hahahah="a"/>} />
+            <Route path="library" element={<TestComponent hahahah="b"/>} />
+            <Route path="search" element={<TestComponent hahahah="c"/>} />
+          </Routes>
+        </div>
+        <PlayerControlBar />
+      </div>
+    </Router>
   );
 }
 
