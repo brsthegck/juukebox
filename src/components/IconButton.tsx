@@ -37,6 +37,8 @@ const IconButton : React.FunctionComponent<IIconButtonProps> = ({icon, children,
         </div>
     );
     
+    console.log(currentRoute);
+
     if(route){
         return(
             <Link 
