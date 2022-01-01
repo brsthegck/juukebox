@@ -7,19 +7,15 @@ import HomeSVG from '../img/NavigationBar/Home.svg';
 import LibrarySVG from '../img/NavigationBar/Library.svg';
 import SearchSVG from  '../img/NavigationBar/Search.svg';
 import UserSVG from '../img/NavigationBar/User.svg';
+import AccountMenu from "./AccountMenu";
+import MenuToggleMediator from "./MenuToggleMediator";
 
 interface INavbarProps{
     userId:     number;
     userName:   string;
 }
 
-function accountDropdownToggle(): void{
-    alert("Toggled!");
-}
-
 const NavigationBar: React.FunctionComponent<INavbarProps> = ({userId, userName}) => {
-
-
     return (
         <div className="z-10">
             <div className="w-full bg-black h-16 flex flex-row items-center justify-between">
@@ -30,7 +26,7 @@ const NavigationBar: React.FunctionComponent<INavbarProps> = ({userId, userName}
                     <IconButton icon={SearchSVG} route="search" isNavButton>Search</IconButton>
                 </div>
                 <div className="mr-4 flex flex-col">
-                    <IconButton icon={UserSVG} clickHandler={accountDropdownToggle}>Account</IconButton>
+                    <MenuToggleMediator toggler={<IconButton icon={UserSVG}>Account</IconButton>} menu={<AccountMenu/>}/>
                 </div>
             </div>
             <div className="flex flex-row justify-between">

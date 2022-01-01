@@ -1,19 +1,20 @@
-import React, { MouseEventHandler, ReactNode } from "react";
+import React, { MouseEventHandler } from "react";
 import { Link } from "react-router-dom";
 import classNames from 'classnames';
 import {useLocation} from 'react-router-dom';
 
 interface IIconButtonProps{
-    icon?:          string;
-    children?:      React.ReactNode;
-    clickHandler?:  MouseEventHandler<HTMLAnchorElement>; 
-    route?:         string;
-    blue?:          boolean;
-    pink?:          boolean;
-    isNavButton?:   boolean;
-}
+    icon?:              string;
+    children?:          React.ReactNode;
+    clickHandler?:      MouseEventHandler<HTMLAnchorElement>; 
+    route?:             string;
+    blue?:              boolean;
+    pink?:              boolean;
+    isNavButton?:       boolean;
+    isToggleButton?:    boolean;
+}   
 
-const IconButton : React.FunctionComponent<IIconButtonProps> = ({icon, children, clickHandler, route, blue, pink, isNavButton}) => {
+const IconButton : React.FunctionComponent<IIconButtonProps> = ({icon, children, clickHandler, route, blue, pink, isNavButton, isToggleButton}) => {
     //Put this on a state perhaps?
     const currentRoute = useLocation().pathname;
     
