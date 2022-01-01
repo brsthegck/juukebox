@@ -8,6 +8,7 @@ module.exports = {
       },
       minWidth: {
         'button': '6rem',
+        'menu': '12rem'
       },
       colors: {
         'juukebox-blue': '#2400FF',

@@ -2,7 +2,7 @@ import React from 'react';
 import BorderAccentSVG from "../img/NavigationBar/BorderAccent.svg";
 
 interface IPlayerbarProps{
-
+    
 }
 
 const PlayerControllerBar: React.FunctionComponent<IPlayerbarProps> = ({}) => {

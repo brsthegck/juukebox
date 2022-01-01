@@ -28,6 +28,9 @@ function App() {
             <Route path="home" element={<TestComponent hahahah="a"/>} />
             <Route path="library" element={<TestComponent hahahah="b"/>} />
             <Route path="search" element={<TestComponent hahahah="c"/>} />
+            <Route path="settings" element={<TestComponent hahahah="settt"/>} />
+            <Route path="account" element={<TestComponent hahahah="account"/>} />
+            <Route path="profile/userid" element={<TestComponent hahahah="prof"/>} />
           </Routes>
         </div>
         <PlayerControlBar />
