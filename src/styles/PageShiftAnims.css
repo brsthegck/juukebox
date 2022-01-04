@@ -1,0 +1,21 @@
+.pageshift-enter {
+opacity: 0;
+transform: translateX(-10);
+}
+.pageshift-enter-active {
+opacity: 1;
+transform: translateX(0);
+transition: all 500ms;
+
+}
+.pageshift-exit {
+opacity: 1;
+}
+.pageshift-exit-active {
+opacity: 0;
+transition: opacity 500ms;
+}
+
+.test{
+    background-color: magenta;
+}
