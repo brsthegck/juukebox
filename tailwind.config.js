@@ -10,6 +10,10 @@ module.exports = {
         'button': '6rem',
         'menu': '12rem'
       },
+      width: {
+        'content': '40rem',
+        'trackinfo': '15rem'
+      },
       colors: {
         'juukebox-blue': '#2400FF',
         'juukebox-blue-hover': 'rgb(66, 30, 255)',

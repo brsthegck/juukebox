@@ -46,7 +46,6 @@ const IconButton : React.FunctionComponent<IIconButtonProps> = ({children, icon,
             <Link 
             className="mx-2"
             to={route}
-            state={{prevPath: currentRoute}}
             onClick={clickHandler}>
                 {buttonContent}
             </Link>
