@@ -3,12 +3,11 @@ import LogoSVG from "../img/logo.svg";
 import BorderAccentSVG from "../img/NavigationBar/BorderAccent.svg";
 import IconButton from "./IconButton";
 
-import HomeSVG from '../img/NavigationBar/Home.svg';
-import LibrarySVG from '../img/NavigationBar/Library.svg';
-import SearchSVG from  '../img/NavigationBar/Search.svg';
+
 import UserSVG from '../img/NavigationBar/User.svg';
 import AccountMenu from "./AccountMenu";
 import MenuToggleMediator from "./MenuToggleMediator";
+import NavButtonGroup from "./NavButtonGroup";
 
 interface INavbarProps{
     userId:     number;
@@ -19,13 +18,13 @@ const NavigationBar: React.FunctionComponent<INavbarProps> = ({userId, userName}
     return (
         <div className="z-10">
             <div className="w-full bg-black h-16 flex flex-row items-center justify-between">
-                <div className="flex flex-row items-center">
-                    <img src={LogoSVG} className="w-16 h-16 ml-2 mr-4" alt="Juukebox logo"/>
-                    <IconButton icon={HomeSVG} route="home" isNavButton>Home</IconButton>
-                    <IconButton icon={LibrarySVG} route="library" isNavButton>Library</IconButton>
-                    <IconButton icon={SearchSVG} route="search" isNavButton>Search</IconButton>
+                <img src={LogoSVG} className="w-16 h-16 ml-2 mr-4" alt="Juukebox logo"/>
+                
+                <div className="hidden sm:flex">
+                    <NavButtonGroup/>
                 </div>
-                <div className="mr-4 flex flex-col">
+
+                <div className="mr-2 flex flex-col">
                     <MenuToggleMediator toggler={<IconButton icon={UserSVG}>Account</IconButton>} menu={<AccountMenu/>}/>
                 </div>
             </div>

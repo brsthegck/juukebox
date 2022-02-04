@@ -10,7 +10,7 @@ const MenuToggleMediator: React.FunctionComponent<IMenuToggleMediatorProps> = ({
     const [menuState, setMenuState] = useState(false);
     const toggleHandler = () => setMenuState(!menuState)
 
-    const handlerInjectedToggler = React.cloneElement(toggler, {clickHandler: toggleHandler});
+    const handlerInjectedToggler = React.cloneElement(toggler, {clickHandler: toggleHandler, toggledOn: menuState});
     const handlerInjectedMenu = React.cloneElement(menu, {toggleHandler: toggleHandler}); 
     
     const mediatorRef = useRef<HTMLDivElement | null>(null);
@@ -21,9 +21,19 @@ const MenuToggleMediator: React.FunctionComponent<IMenuToggleMediatorProps> = ({
         }
     }
 
+    function escapeDownHandler(event: KeyboardEvent){
+        if(event.key === "Escape"){
+            setMenuState(false);
+        }
+    }
+
     useEffect(() => {
         document.addEventListener('mousedown', outsideClickHandler);
-        return () => document.removeEventListener('mousedown', outsideClickHandler);
+        document.addEventListener('keydown', escapeDownHandler);
+        return () => {
+            document.removeEventListener('mousedown', outsideClickHandler);
+            document.removeEventListener('keydown', escapeDownHandler);
+        }
     }, [mediatorRef]);
 
     return (
